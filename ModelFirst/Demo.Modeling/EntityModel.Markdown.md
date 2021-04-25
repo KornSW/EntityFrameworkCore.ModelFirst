@@ -24,6 +24,8 @@
 
 # Model:
 
+![chart](./chart.png)
+
 
 
 ## Class
@@ -38,14 +40,17 @@
 | [RoomUid](#ClassRoomUid-Field) (FK) | *guid* | no | no |
 | OfficialName | *string* | YES | no |
 | EducationLevelYear | *int32* | YES | no |
-##### Unique Keys
+#### Unique Keys
 * Uid **(primary)**
-##### Class.**Uid** (Field)
+
+#### Class.**Uid** (Field)
 * this field represents the identity (PK) of the record
-##### Class.**PrimaryTeacherUid** (Field)
+
+#### Class.**PrimaryTeacherUid** (Field)
 * this field is optional, so that '*null*' values are supported
 * this field is used as foreign key to address the related 'PrimaryTeacher'
-##### Class.**RoomUid** (Field)
+
+#### Class.**RoomUid** (Field)
 * this field is optional, so that '*null*' values are supported
 * this field is used as foreign key to address the related 'PrimaryRoom'
 
@@ -53,7 +58,7 @@
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [PrimaryTeacher](#PrimaryTeacher-lookup-from-this-Class) | Lookup | [Teacher](#Teacher) | 1 (required) |
 | [PrimaryRoom](#PrimaryRoom-lookup-from-this-Class) | Lookup | [Room](#Room) | 1 (required) |
 | [Students](#Students-childs-of-this-Class) | Childs | [Student](#Student) | * (multiple) |
@@ -89,24 +94,29 @@ Target: [Lesson](#Lesson)
 | DurationHours | *decimal* | YES | no |
 | [TeacherUid](#LessonTeacherUid-Field) (FK) | *guid* | YES | no |
 | [SubjectOfficialName](#LessonSubjectOfficialName-Field) (FK) | *string* | YES | no |
-##### Unique Keys
+#### Unique Keys
 * Uid **(primary)**
-##### Lesson.**Uid** (Field)
+
+#### Lesson.**Uid** (Field)
 * this field represents the identity (PK) of the record
-##### Lesson.**EducatedClassUid** (Field)
+
+#### Lesson.**EducatedClassUid** (Field)
 * this field is used as foreign key to address the related 'EducatedClass'
-##### Lesson.**RoomUid** (Field)
+
+#### Lesson.**RoomUid** (Field)
 * this field is used as foreign key to address the related 'Room'
-##### Lesson.**TeacherUid** (Field)
+
+#### Lesson.**TeacherUid** (Field)
 * this field is used as foreign key to address the related 'Teaching'
-##### Lesson.**SubjectOfficialName** (Field)
+
+#### Lesson.**SubjectOfficialName** (Field)
 * this field is used as foreign key to address the related 'Teaching'
 
 
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [EducatedClass](#EducatedClass-parent-of-this-Lesson) | Parent | [Class](#Class) | 0/1 (optional) |
 | [Room](#Room-lookup-from-this-Lesson) | Lookup | [Room](#Room) | 0/1 (optional) |
 | [Teaching](#Teaching-lookup-from-this-Lesson) | Lookup | [SubjectTeaching](#SubjectTeaching) | 0/1 (optional) |
@@ -136,18 +146,20 @@ Addressed by: [TeacherUid](#LessonTeacherUid-Field), [SubjectOfficialName](#Less
 | FirstName | *string* | YES | no |
 | LastName | *string* | YES | no |
 | ScoolEntryYear | *int32* | YES | no |
-##### Unique Keys
+#### Unique Keys
 * Uid **(primary)**
-##### Student.**Uid** (Field)
+
+#### Student.**Uid** (Field)
 * this field represents the identity (PK) of the record
-##### Student.**ClassUid** (Field)
+
+#### Student.**ClassUid** (Field)
 * this field is used as foreign key to address the related 'Class'
 
 
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [Class](#Class-parent-of-this-Student) | Parent | [Class](#Class) | 0/1 (optional) |
 
 ##### **Class** (parent of this Student)
@@ -168,11 +180,13 @@ Addressed by: [ClassUid](#StudentClassUid-Field).
 | InventoryNumber | *int16* | YES | no |
 | Title | *string* | YES | no |
 | [DedicatedToSubjectName](#EnducationItemDedicatedToSubjectName-Field) (FK) | *string* | no | no |
-##### Unique Keys
+#### Unique Keys
 * Uid **(primary)**
-##### EnducationItem.**Uid** (Field)
+
+#### EnducationItem.**Uid** (Field)
 * this field represents the identity (PK) of the record
-##### EnducationItem.**DedicatedToSubjectName** (Field)
+
+#### EnducationItem.**DedicatedToSubjectName** (Field)
 * this field is optional, so that '*null*' values are supported
 * this field is used as foreign key to address the related 'DedicatedToSubject'
 
@@ -180,7 +194,7 @@ Addressed by: [ClassUid](#StudentClassUid-Field).
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [Picture](#Picture-child-of-this-EnducationItem) | Child | [EducationItemPicture](#EducationItemPicture) | 0/1 (single) |
 | [DedicatedToSubject](#DedicatedToSubject-lookup-from-this-EnducationItem) | Lookup | [Subject](#Subject) | 1 (required) |
 
@@ -203,15 +217,16 @@ This type is a specialization of [EnducationItem](#EnducationItem)
 | Name | Type | Required | Fix |
 | ---- | ---- | -------- | --- |
 | [RoomUid](#RoomRelatedEducationItemRoomUid-Field) (FK) | *guid* | YES | no |
-##### Unique Keys
-##### RoomRelatedEducationItem.**RoomUid** (Field)
+#### Unique Keys
+
+#### RoomRelatedEducationItem.**RoomUid** (Field)
 * this field is used as foreign key to address the related 'Location'
 
 
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [Location](#Location-lookup-from-this-RoomRelatedEducationItem) | Lookup | [Room](#Room) | 0/1 (optional) |
 
 ##### **Location** (lookup from this RoomRelatedEducationItem)
@@ -231,15 +246,16 @@ This type is a specialization of [EnducationItem](#EnducationItem)
 | Name | Type | Required | Fix |
 | ---- | ---- | -------- | --- |
 | [TeacherUid](#TeacherRelatedEducationItemTeacherUid-Field) (FK) | *guid* | YES | no |
-##### Unique Keys
-##### TeacherRelatedEducationItem.**TeacherUid** (Field)
+#### Unique Keys
+
+#### TeacherRelatedEducationItem.**TeacherUid** (Field)
 * this field is used as foreign key to address the related 'OwningTeacher'
 
 
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [OwningTeacher](#OwningTeacher-lookup-from-this-TeacherRelatedEducationItem) | Lookup | [Teacher](#Teacher) | 0/1 (optional) |
 
 ##### **OwningTeacher** (lookup from this TeacherRelatedEducationItem)
@@ -258,9 +274,10 @@ Addressed by: [TeacherUid](#TeacherRelatedEducationItemTeacherUid-Field).
 | ---- | ---- | -------- | --- |
 | [Uid](#EducationItemPictureUid-Field) **(PK)** (FK) | *guid* | YES | no |
 | PictureData | *byte[]* | YES | no |
-##### Unique Keys
+#### Unique Keys
 * Uid **(primary)**
-##### EducationItemPicture.**Uid** (Field)
+
+#### EducationItemPicture.**Uid** (Field)
 * this field represents the identity (PK) of the record
 * this field is used as foreign key to address the related 'EnducationItem'
 
@@ -268,7 +285,7 @@ Addressed by: [TeacherUid](#TeacherRelatedEducationItemTeacherUid-Field).
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [EnducationItem](#EnducationItem-parent-of-this-EducationItemPicture) | Parent | [EnducationItem](#EnducationItem) | 0/1 (optional) |
 
 ##### **EnducationItem** (parent of this EducationItemPicture)
@@ -287,16 +304,17 @@ Addressed by: [Uid](#EducationItemPictureUid-Field).
 | ---- | ---- | -------- | --- |
 | [Uid](#RoomUid-Field) **(PK)** | *guid* | YES | no |
 | OfficialName | *string* | YES | no |
-##### Unique Keys
+#### Unique Keys
 * Uid **(primary)**
-##### Room.**Uid** (Field)
+
+#### Room.**Uid** (Field)
 * this field represents the identity (PK) of the record
 
 
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [PrimaryClasses](#PrimaryClasses-refering-to-this-Room) | Referers | [Class](#Class) | * (multiple) |
 | [ScheduledLessons](#ScheduledLessons-refering-to-this-Room) | Referers | [Lesson](#Lesson) | * (multiple) |
 | [EducationItems](#EducationItems-refering-to-this-Room) | Referers | [RoomRelatedEducationItem](#RoomRelatedEducationItem) | * (multiple) |
@@ -319,16 +337,17 @@ Target: [RoomRelatedEducationItem](#RoomRelatedEducationItem)
 | Name | Type | Required | Fix |
 | ---- | ---- | -------- | --- |
 | [OfficialName](#SubjectOfficialName-Field) **(PK)** | *string* | YES | no |
-##### Unique Keys
+#### Unique Keys
 * OfficialName **(primary)**
-##### Subject.**OfficialName** (Field)
+
+#### Subject.**OfficialName** (Field)
 * this field represents the identity (PK) of the record
 
 
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [EnducationItems](#EnducationItems-refering-to-this-Subject) | Referers | [EnducationItem](#EnducationItem) | * (multiple) |
 | [Teachings](#Teachings-refering-to-this-Subject) | Referers | [SubjectTeaching](#SubjectTeaching) | * (multiple) |
 
@@ -350,16 +369,17 @@ Target: [SubjectTeaching](#SubjectTeaching)
 | [Uid](#TeacherUid-Field) **(PK)** | *guid* | YES | no |
 | FirstName | *string* | YES | no |
 | LastName | *string* | YES | no |
-##### Unique Keys
+#### Unique Keys
 * Uid **(primary)**
-##### Teacher.**Uid** (Field)
+
+#### Teacher.**Uid** (Field)
 * this field represents the identity (PK) of the record
 
 
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [PrimaryClasses](#PrimaryClasses-refering-to-this-Teacher) | Referers | [Class](#Class) | * (multiple) |
 | [Teachings](#Teachings-childs-of-this-Teacher) | Childs | [SubjectTeaching](#SubjectTeaching) | * (multiple) |
 | [OwnedEducationItems](#OwnedEducationItems-refering-to-this-Teacher) | Referers | [TeacherRelatedEducationItem](#TeacherRelatedEducationItem) | * (multiple) |
@@ -383,12 +403,14 @@ Target: [TeacherRelatedEducationItem](#TeacherRelatedEducationItem)
 | ---- | ---- | -------- | --- |
 | [TeacherUid](#SubjectTeachingTeacherUid-Field) **(PK)** (FK) | *guid* | YES | no |
 | [SubjectOfficialName](#SubjectTeachingSubjectOfficialName-Field) **(PK)** (FK) | *string* | YES | no |
-##### Unique Keys
+#### Unique Keys
 * TeacherUid + SubjectOfficialName **(primary)**
-##### SubjectTeaching.**TeacherUid** (Field)
+
+#### SubjectTeaching.**TeacherUid** (Field)
 * this field represents the identity (PK) of the record
 * this field is used as foreign key to address the related 'Teacher'
-##### SubjectTeaching.**SubjectOfficialName** (Field)
+
+#### SubjectTeaching.**SubjectOfficialName** (Field)
 * this field represents the identity (PK) of the record
 * this field is used as foreign key to address the related 'Subject'
 
@@ -396,7 +418,7 @@ Target: [TeacherRelatedEducationItem](#TeacherRelatedEducationItem)
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [ScheduledLessons](#ScheduledLessons-refering-to-this-SubjectTeaching) | Referers | [Lesson](#Lesson) | * (multiple) |
 | [Subject](#Subject-lookup-from-this-SubjectTeaching) | Lookup | [Subject](#Subject) | 0/1 (optional) |
 | [Teacher](#Teacher-parent-of-this-SubjectTeaching) | Parent | [Teacher](#Teacher) | 0/1 (optional) |
@@ -427,23 +449,27 @@ Target: [TeachingRequiredItem](#TeachingRequiredItem)
 | [TeacherUid](#TeachingRequiredItemTeacherUid-Field) (FK) | *guid* | YES | no |
 | [SubjectOfficialName](#TeachingRequiredItemSubjectOfficialName-Field) (FK) | *string* | YES | no |
 | [RequiredEducationItemUid](#TeachingRequiredItemRequiredEducationItemUid-Field) (FK) | *guid* | YES | no |
-##### Unique Keys
+#### Unique Keys
 * Uid **(primary)**
-##### TeachingRequiredItem.**Uid** (Field)
+
+#### TeachingRequiredItem.**Uid** (Field)
 * this field represents the identity (PK) of the record
 * this identity is a internal record id, so that it must not be exposed to other systems or displayed to end-users!
-##### TeachingRequiredItem.**TeacherUid** (Field)
+
+#### TeachingRequiredItem.**TeacherUid** (Field)
 * this field is used as foreign key to address the related 'Teaching'
-##### TeachingRequiredItem.**SubjectOfficialName** (Field)
+
+#### TeachingRequiredItem.**SubjectOfficialName** (Field)
 * this field is used as foreign key to address the related 'Teaching'
-##### TeachingRequiredItem.**RequiredEducationItemUid** (Field)
+
+#### TeachingRequiredItem.**RequiredEducationItemUid** (Field)
 * this field is used as foreign key to address the related 'RequiredItem'
 
 
 ### Relations
 
 | Navigation-Name | Role | Target-Type | Target-Multiplicity |
-| --------------- | ----------- | ------------------- |
+| --------------- | -----| ----------- | ------------------- |
 | [Teaching](#Teaching-parent-of-this-TeachingRequiredItem) | Parent | [SubjectTeaching](#SubjectTeaching) | 0/1 (optional) |
 | [RequiredItem](#RequiredItem-lookup-from-this-TeachingRequiredItem) | Lookup | [TeacherRelatedEducationItem](#TeacherRelatedEducationItem) | 0/1 (optional) |
 
