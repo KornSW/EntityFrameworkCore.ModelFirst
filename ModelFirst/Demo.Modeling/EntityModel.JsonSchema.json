@@ -1,0 +1,942 @@
+{
+  "DescriptionFormat": "v1.0",
+  "TimestampUtc": "2021-04-21T14:47:22.7356493Z",
+  "SemanticVersion": "1.3.0",
+  "Entities": [
+    {
+      "Name": "Class",
+      "NamePlural": "Classes",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_Classes",
+      "Indices": [
+        {
+          "Name": "PK_Classes",
+          "Unique": true,
+          "MemberFieldNames": [
+            "Uid"
+          ]
+        },
+        {
+          "Name": "FK_Classes__PrimaryTeacher",
+          "Unique": false,
+          "MemberFieldNames": [
+            "PrimaryTeacherUid"
+          ]
+        },
+        {
+          "Name": "FK_Classes__PrimaryRoom",
+          "Unique": false,
+          "MemberFieldNames": [
+            "RoomUid"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "Uid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "PrimaryTeacherUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": false,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "RoomUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": false,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "OfficialName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "EducationLevelYear",
+          "Type": "Int32",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "Teacher",
+      "NamePlural": "Teachers",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_Teachers",
+      "Indices": [
+        {
+          "Name": "PK_Teachers",
+          "Unique": true,
+          "MemberFieldNames": [
+            "Uid"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "Uid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "FirstName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "LastName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "Room",
+      "NamePlural": "Rooms",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_Rooms",
+      "Indices": [
+        {
+          "Name": "PK_Rooms",
+          "Unique": true,
+          "MemberFieldNames": [
+            "Uid"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "Uid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "OfficialName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "Student",
+      "NamePlural": "Students",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_Students",
+      "Indices": [
+        {
+          "Name": "FK__Classes_Class",
+          "Unique": false,
+          "MemberFieldNames": [
+            "ClassUid"
+          ]
+        },
+        {
+          "Name": "PK_Students",
+          "Unique": true,
+          "MemberFieldNames": [
+            "Uid"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "Uid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "ClassUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "FirstName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "LastName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "ScoolEntryYear",
+          "Type": "Int32",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "Lesson",
+      "NamePlural": "Lessons",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_Lessons",
+      "Indices": [
+        {
+          "Name": "FK__Classes_EducatedClass",
+          "Unique": false,
+          "MemberFieldNames": [
+            "EducatedClassUid"
+          ]
+        },
+        {
+          "Name": "PK_Lessons",
+          "Unique": true,
+          "MemberFieldNames": [
+            "Uid"
+          ]
+        },
+        {
+          "Name": "FK_Lessons__Room",
+          "Unique": false,
+          "MemberFieldNames": [
+            "RoomUid"
+          ]
+        },
+        {
+          "Name": "FK_Lessons__Teaching",
+          "Unique": false,
+          "MemberFieldNames": [
+            "TeacherUid",
+            "SubjectOfficialName"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "Uid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "EducatedClassUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "RoomUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "OfficialName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "DayOfWeek",
+          "Type": "Int32",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "Begin",
+          "Type": "Time",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "DurationHours",
+          "Type": "Decimal",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "TeacherUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "SubjectOfficialName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "EducationItemPicture",
+      "NamePlural": "EducationItemPictures",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_EducationItemPictures",
+      "Indices": [
+        {
+          "Name": "PK_EducationItemPictures",
+          "Unique": true,
+          "MemberFieldNames": [
+            "Uid"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "Uid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "PictureData",
+          "Type": "Binary",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "EnducationItem",
+      "NamePlural": "EnducationItems",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_EnducationItems",
+      "Indices": [
+        {
+          "Name": "PK_EnducationItems",
+          "Unique": true,
+          "MemberFieldNames": [
+            "Uid"
+          ]
+        },
+        {
+          "Name": "FK_EnducationItems__DedicatedToSubject",
+          "Unique": false,
+          "MemberFieldNames": [
+            "DedicatedToSubjectName"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "Uid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "InventoryNumber",
+          "Type": "Int16",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "Title",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "DedicatedToSubjectName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": false,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "Subject",
+      "NamePlural": "Subjects",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_Subjects",
+      "Indices": [
+        {
+          "Name": "PK_Subjects",
+          "Unique": true,
+          "MemberFieldNames": [
+            "OfficialName"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "OfficialName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "SubjectTeaching",
+      "NamePlural": "SubjectTeachings",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_SubjectTeachings",
+      "Indices": [
+        {
+          "Name": "FK__Subjects_Subject",
+          "Unique": false,
+          "MemberFieldNames": [
+            "SubjectOfficialName"
+          ]
+        },
+        {
+          "Name": "PK_SubjectTeachings",
+          "Unique": true,
+          "MemberFieldNames": [
+            "TeacherUid",
+            "SubjectOfficialName"
+          ]
+        },
+        {
+          "Name": "FK_SubjectTeachings__Teacher",
+          "Unique": false,
+          "MemberFieldNames": [
+            "TeacherUid"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "TeacherUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "SubjectOfficialName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "RoomRelatedEducationItem",
+      "NamePlural": "EnducationItemsOfRoomRelatedEducationItem",
+      "InheritedEntityName": "EnducationItem",
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": null,
+      "Indices": [
+        {
+          "Name": "FK__Rooms_Location",
+          "Unique": false,
+          "MemberFieldNames": [
+            "RoomUid"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "RoomUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "TeachingRequiredItem",
+      "NamePlural": "TeachingRequiredItems",
+      "InheritedEntityName": null,
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": "PK_TeachingRequiredItems",
+      "Indices": [
+        {
+          "Name": "FK__SubjectTeachings_Teaching",
+          "Unique": false,
+          "MemberFieldNames": [
+            "TeacherUid",
+            "SubjectOfficialName"
+          ]
+        },
+        {
+          "Name": "FK__EnducationItemsOfTeacherRelatedEducationItem_RequiredItem",
+          "Unique": false,
+          "MemberFieldNames": [
+            "RequiredEducationItemUid"
+          ]
+        },
+        {
+          "Name": "PK_TeachingRequiredItems",
+          "Unique": true,
+          "MemberFieldNames": [
+            "Uid"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "Uid",
+          "Type": "Int32",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": true
+        },
+        {
+          "Name": "TeacherUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "SubjectOfficialName",
+          "Type": "String",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        },
+        {
+          "Name": "RequiredEducationItemUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    },
+    {
+      "Name": "TeacherRelatedEducationItem",
+      "NamePlural": "EnducationItemsOfTeacherRelatedEducationItem",
+      "InheritedEntityName": "EnducationItem",
+      "Summary": "",
+      "IsBlEntrypoint": false,
+      "PrimaryKeyIndexName": null,
+      "Indices": [
+        {
+          "Name": "FK__Teachers_OwningTeacher",
+          "Unique": false,
+          "MemberFieldNames": [
+            "TeacherUid"
+          ]
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "TeacherUid",
+          "Type": "Guid",
+          "MaxLength": 0,
+          "Summary": "",
+          "SystemInternal": false,
+          "FixedAfterCreation": false,
+          "Required": true,
+          "DefaultValue": null,
+          "DbGeneratedIdentity": false
+        }
+      ]
+    }
+  ],
+  "Relations": [
+    {
+      "Name": "TeacherClass",
+      "PrimaryEntityName": "Teacher",
+      "ForeignEntityName": "Class",
+      "ForeignKeyIndexName": "FK_Classes__PrimaryTeacher",
+      "IsLookupRelation": true,
+      "PrimaryEntityIsOptional": true,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "PrimaryClasses",
+      "ForeignNavigationName": "PrimaryTeacher",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": false
+    },
+    {
+      "Name": "RoomClass",
+      "PrimaryEntityName": "Room",
+      "ForeignEntityName": "Class",
+      "ForeignKeyIndexName": "FK_Classes__PrimaryRoom",
+      "IsLookupRelation": true,
+      "PrimaryEntityIsOptional": true,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "PrimaryClasses",
+      "ForeignNavigationName": "PrimaryRoom",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": false
+    },
+    {
+      "Name": "ClassStudent",
+      "PrimaryEntityName": "Class",
+      "ForeignEntityName": "Student",
+      "ForeignKeyIndexName": "FK__Classes_Class",
+      "IsLookupRelation": false,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "Students",
+      "ForeignNavigationName": "Class",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": true
+    },
+    {
+      "Name": "ClassLesson",
+      "PrimaryEntityName": "Class",
+      "ForeignEntityName": "Lesson",
+      "ForeignKeyIndexName": "FK__Classes_EducatedClass",
+      "IsLookupRelation": false,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "ScheduledLessons",
+      "ForeignNavigationName": "EducatedClass",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": true
+    },
+    {
+      "Name": "EnducationItemEducationItemPicture",
+      "PrimaryEntityName": "EnducationItem",
+      "ForeignEntityName": "EducationItemPicture",
+      "ForeignKeyIndexName": "PK_EducationItemPictures",
+      "IsLookupRelation": false,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": false,
+      "PrimaryNavigationName": "Picture",
+      "ForeignNavigationName": "EnducationItem",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": true
+    },
+    {
+      "Name": "SubjectEnducationItem",
+      "PrimaryEntityName": "Subject",
+      "ForeignEntityName": "EnducationItem",
+      "ForeignKeyIndexName": "FK_EnducationItems__DedicatedToSubject",
+      "IsLookupRelation": true,
+      "PrimaryEntityIsOptional": true,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "EnducationItems",
+      "ForeignNavigationName": "DedicatedToSubject",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": false
+    },
+    {
+      "Name": "RoomLesson",
+      "PrimaryEntityName": "Room",
+      "ForeignEntityName": "Lesson",
+      "ForeignKeyIndexName": "FK_Lessons__Room",
+      "IsLookupRelation": true,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "ScheduledLessons",
+      "ForeignNavigationName": "Room",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": false
+    },
+    {
+      "Name": "SubjectTeachingLesson",
+      "PrimaryEntityName": "SubjectTeaching",
+      "ForeignEntityName": "Lesson",
+      "ForeignKeyIndexName": "FK_Lessons__Teaching",
+      "IsLookupRelation": true,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "ScheduledLessons",
+      "ForeignNavigationName": "Teaching",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": false
+    },
+    {
+      "Name": "RoomRoomRelatedEducationItem",
+      "PrimaryEntityName": "Room",
+      "ForeignEntityName": "RoomRelatedEducationItem",
+      "ForeignKeyIndexName": "FK__Rooms_Location",
+      "IsLookupRelation": true,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "EducationItems",
+      "ForeignNavigationName": "Location",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": false
+    },
+    {
+      "Name": "SubjectSubjectTeaching",
+      "PrimaryEntityName": "Subject",
+      "ForeignEntityName": "SubjectTeaching",
+      "ForeignKeyIndexName": "FK__Subjects_Subject",
+      "IsLookupRelation": true,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "Teachings",
+      "ForeignNavigationName": "Subject",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": false
+    },
+    {
+      "Name": "TeacherTeacherSupportedSubject",
+      "PrimaryEntityName": "Teacher",
+      "ForeignEntityName": "SubjectTeaching",
+      "ForeignKeyIndexName": "FK_SubjectTeachings__Teacher",
+      "IsLookupRelation": false,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "Teachings",
+      "ForeignNavigationName": "Teacher",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": true
+    },
+    {
+      "Name": "SubjectTeachingTeachingRequiredItem",
+      "PrimaryEntityName": "SubjectTeaching",
+      "ForeignEntityName": "TeachingRequiredItem",
+      "ForeignKeyIndexName": "FK__SubjectTeachings_Teaching",
+      "IsLookupRelation": false,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "RequiredItems",
+      "ForeignNavigationName": "Teaching",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": true
+    },
+    {
+      "Name": "TeacherTeacherRelatedEducationItem",
+      "PrimaryEntityName": "Teacher",
+      "ForeignEntityName": "TeacherRelatedEducationItem",
+      "ForeignKeyIndexName": "FK__Teachers_OwningTeacher",
+      "IsLookupRelation": true,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "OwnedEducationItems",
+      "ForeignNavigationName": "OwningTeacher",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": false
+    },
+    {
+      "Name": "TeacherRelatedEducationItemTeachingRequiredItem",
+      "PrimaryEntityName": "TeacherRelatedEducationItem",
+      "ForeignEntityName": "TeachingRequiredItem",
+      "ForeignKeyIndexName": "FK__EnducationItemsOfTeacherRelatedEducationItem_RequiredItem",
+      "IsLookupRelation": true,
+      "PrimaryEntityIsOptional": false,
+      "ForeignEntityIsMultiple": true,
+      "PrimaryNavigationName": "RequiredFor",
+      "ForeignNavigationName": "RequiredItem",
+      "PrimaryNavigationSummary": "",
+      "ForeignNavigationSummary": "",
+      "CascadeDelete": false
+    }
+  ]
+}

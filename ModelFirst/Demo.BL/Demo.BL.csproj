@@ -1,0 +1,88 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>EfCoreModelFirst.Demo.BL</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Version>0.0.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+    <OutputPath>..\..\(Stage)\Bin\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>..\..\(Stage)\Bin\EfCoreModelFirst.Demo.BL.xml</DocumentationFile>
+    <OutputPath>..\..\(Stage)\Bin\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="RepositoryLayer\RepoInterfaces.tt">
+      <LastGenOutput>RepoInterfaces.Generated.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Update="RepositoryLayer\Models (without NavProps).tt">
+      <LastGenOutput>Models (without NavProps).Generated.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Update="PersistenceLayer\Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Context.Generated.cs</LastGenOutput>
+    </None>
+    <None Update="PersistenceLayer\Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Entities.Generated.cs</LastGenOutput>
+    </None>
+    <None Update="RepositoryLayer\Stores.tt">
+      <LastGenOutput>Stores.Generated.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="PersistenceLayer\Context.Generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Update="PersistenceLayer\Entities.Generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Update="RepositoryLayer\Models %28without NavProps%29.Generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Models (without NavProps).tt</DependentUpon>
+    </Compile>
+    <Compile Update="RepositoryLayer\RepoInterfaces.Generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RepoInterfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Update="RepositoryLayer\Stores.Generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Stores.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
