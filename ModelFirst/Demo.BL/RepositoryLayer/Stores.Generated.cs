@@ -41,10 +41,10 @@ public partial class ClassStore : IClassRepository {
     return this.SearchClasses(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"Uid", "PrimaryTeacherUid", "RoomUid"};
+  private static String[] _ExactMatchPropNames = new String[] {};
   private static String[] _FreetextPropNames = new String[] {"OfficialName"};
 
-  /// <summary> Loads Classes where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Classes where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -237,10 +237,10 @@ public partial class TeacherStore : ITeacherRepository {
     return this.SearchTeachers(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"Uid"};
+  private static String[] _ExactMatchPropNames = new String[] {};
   private static String[] _FreetextPropNames = new String[] {"FirstName", "LastName"};
 
-  /// <summary> Loads Teachers where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Teachers where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -427,10 +427,10 @@ public partial class RoomStore : IRoomRepository {
     return this.SearchRooms(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"Uid"};
+  private static String[] _ExactMatchPropNames = new String[] {};
   private static String[] _FreetextPropNames = new String[] {"OfficialName"};
 
-  /// <summary> Loads Rooms where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Rooms where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -617,10 +617,10 @@ public partial class StudentStore : IStudentRepository {
     return this.SearchStudents(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"ClassUid", "Uid"};
+  private static String[] _ExactMatchPropNames = new String[] {};
   private static String[] _FreetextPropNames = new String[] {"FirstName", "LastName"};
 
-  /// <summary> Loads Students where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Students where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -810,10 +810,10 @@ public partial class LessonStore : ILessonRepository {
     return this.SearchLessons(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"EducatedClassUid", "Uid", "RoomUid", "TeacherUid", "SubjectOfficialName"};
+  private static String[] _ExactMatchPropNames = new String[] {"SubjectOfficialName"};
   private static String[] _FreetextPropNames = new String[] {"OfficialName"};
 
-  /// <summary> Loads Lessons where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Lessons where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -1009,10 +1009,10 @@ public partial class EducationItemPictureStore : IEducationItemPictureRepository
     return this.SearchEducationItemPictures(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"Uid"};
+  private static String[] _ExactMatchPropNames = new String[] {};
   private static String[] _FreetextPropNames = new String[] {};
 
-  /// <summary> Loads EducationItemPictures where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads EducationItemPictures where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -1202,10 +1202,10 @@ public partial class EnducationItemStore : IEnducationItemRepository {
     return this.SearchEnducationItems(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"Uid", "DedicatedToSubjectName"};
+  private static String[] _ExactMatchPropNames = new String[] {"DedicatedToSubjectName"};
   private static String[] _FreetextPropNames = new String[] {"Title"};
 
-  /// <summary> Loads EnducationItems where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads EnducationItems where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -1398,7 +1398,7 @@ public partial class SubjectStore : ISubjectRepository {
   private static String[] _ExactMatchPropNames = new String[] {"OfficialName"};
   private static String[] _FreetextPropNames = new String[] {};
 
-  /// <summary> Loads Subjects where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Subjects where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -1585,10 +1585,10 @@ public partial class SubjectTeachingStore : ISubjectTeachingRepository {
     return this.SearchSubjectTeachings(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"SubjectOfficialName", "TeacherUid", "SubjectOfficialName", "TeacherUid"};
+  private static String[] _ExactMatchPropNames = new String[] {"SubjectOfficialName", "SubjectOfficialName"};
   private static String[] _FreetextPropNames = new String[] {};
 
-  /// <summary> Loads SubjectTeachings where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads SubjectTeachings where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -1781,10 +1781,10 @@ public partial class RoomRelatedEducationItemStore : IRoomRelatedEducationItemRe
     return this.SearchEnducationItemsOfRoomRelatedEducationItem(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"RoomUid"};
+  private static String[] _ExactMatchPropNames = new String[] {};
   private static String[] _FreetextPropNames = new String[] {};
 
-  /// <summary> Loads EnducationItemsOfRoomRelatedEducationItem where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads EnducationItemsOfRoomRelatedEducationItem where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -1974,10 +1974,10 @@ public partial class TeachingRequiredItemStore : ITeachingRequiredItemRepository
     return this.SearchTeachingRequiredItems(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"TeacherUid", "SubjectOfficialName", "RequiredEducationItemUid"};
+  private static String[] _ExactMatchPropNames = new String[] {"SubjectOfficialName"};
   private static String[] _FreetextPropNames = new String[] {};
 
-  /// <summary> Loads TeachingRequiredItems where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads TeachingRequiredItems where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -2170,10 +2170,10 @@ public partial class TeacherRelatedEducationItemStore : ITeacherRelatedEducation
     return this.SearchEnducationItemsOfTeacherRelatedEducationItem(null, null, page, pageSize); 
   }
 
-  private static String[] _ExactMatchPropNames = new String[] {"TeacherUid"};
+  private static String[] _ExactMatchPropNames = new String[] {};
   private static String[] _FreetextPropNames = new String[] {};
 
-  /// <summary> Loads EnducationItemsOfTeacherRelatedEducationItem where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads EnducationItemsOfTeacherRelatedEducationItem where values matching to the given filterExpression</summary>
   /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>

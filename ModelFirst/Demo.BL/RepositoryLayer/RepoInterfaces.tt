@@ -10,7 +10,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                           //
-//     Copyright: Tobias Korn / version: 24.04.2021                                          //
+//     Copyright: Tobias Korn / version: 01.05.2021                                          //
 //                                                                                           //
 //     this template is open source (under Apache-2 license) and originated here:            //
 //     https://github.com/KornSW/EntityFrameworkCore.ModelFirst                              //
@@ -132,7 +132,7 @@ public partial interface I<#=ressolvedItemName#>Repository {
   /// <param name="pageSize">Max count of <#=entity.NamePlural#> which should be returned </param>
   <#=ressolvedItemName#>[] Get<#=entity.NamePlural#>(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads <#=entity.NamePlural#> where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads <#=entity.NamePlural#> where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>

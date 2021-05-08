@@ -19,7 +19,7 @@ public partial interface IClassRepository {
   /// <param name="pageSize">Max count of Classes which should be returned </param>
   Class[] GetClasses(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads Classes where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Classes where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -60,7 +60,7 @@ public partial interface ITeacherRepository {
   /// <param name="pageSize">Max count of Teachers which should be returned </param>
   Teacher[] GetTeachers(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads Teachers where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Teachers where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -101,7 +101,7 @@ public partial interface IRoomRepository {
   /// <param name="pageSize">Max count of Rooms which should be returned </param>
   Room[] GetRooms(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads Rooms where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Rooms where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -142,7 +142,7 @@ public partial interface IStudentRepository {
   /// <param name="pageSize">Max count of Students which should be returned </param>
   Student[] GetStudents(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads Students where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Students where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -183,7 +183,7 @@ public partial interface ILessonRepository {
   /// <param name="pageSize">Max count of Lessons which should be returned </param>
   Lesson[] GetLessons(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads Lessons where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Lessons where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -224,7 +224,7 @@ public partial interface IEducationItemPictureRepository {
   /// <param name="pageSize">Max count of EducationItemPictures which should be returned </param>
   EducationItemPicture[] GetEducationItemPictures(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads EducationItemPictures where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads EducationItemPictures where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -265,7 +265,7 @@ public partial interface IEnducationItemRepository {
   /// <param name="pageSize">Max count of EnducationItems which should be returned </param>
   EnducationItem[] GetEnducationItems(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads EnducationItems where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads EnducationItems where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -306,7 +306,7 @@ public partial interface ISubjectRepository {
   /// <param name="pageSize">Max count of Subjects which should be returned </param>
   Subject[] GetSubjects(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads Subjects where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads Subjects where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -347,7 +347,7 @@ public partial interface ISubjectTeachingRepository {
   /// <param name="pageSize">Max count of SubjectTeachings which should be returned </param>
   SubjectTeaching[] GetSubjectTeachings(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads SubjectTeachings where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads SubjectTeachings where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -394,7 +394,7 @@ public partial interface IRoomRelatedEducationItemRepository {
   /// <param name="pageSize">Max count of EnducationItemsOfRoomRelatedEducationItem which should be returned </param>
   RoomRelatedEducationItem[] GetEnducationItemsOfRoomRelatedEducationItem(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads EnducationItemsOfRoomRelatedEducationItem where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads EnducationItemsOfRoomRelatedEducationItem where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -435,7 +435,7 @@ public partial interface ITeachingRequiredItemRepository {
   /// <param name="pageSize">Max count of TeachingRequiredItems which should be returned </param>
   TeachingRequiredItem[] GetTeachingRequiredItems(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads TeachingRequiredItems where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads TeachingRequiredItems where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
@@ -476,7 +476,7 @@ public partial interface ITeacherRelatedEducationItemRepository {
   /// <param name="pageSize">Max count of EnducationItemsOfTeacherRelatedEducationItem which should be returned </param>
   TeacherRelatedEducationItem[] GetEnducationItemsOfTeacherRelatedEducationItem(int page = 1, int pageSize = 20);
 
-  /// <summary> Loads EnducationItemsOfTeacherRelatedEducationItem where values matching to ALL fields of the given 'filterValues' object.</summary>
+  /// <summary> Loads EnducationItemsOfTeacherRelatedEducationItem where values matching to the given filterExpression</summary>
     /// <param name="filterExpression">a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'</param>
   /// <param name="sortingExpression">one or more property names which are used as sort order (before pagination)</param>
   /// <param name="page">Number of the page, which should be returned</param>
