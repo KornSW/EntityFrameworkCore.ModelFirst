@@ -129,7 +129,7 @@ Target Type: [Room](#Room)
 Addressed by: [RoomUid](#LessonRoomUid-Field).
 ##### **Teaching** (lookup from this Lesson)
 Target Type: [SubjectTeaching](#SubjectTeaching)
-Addressed by: [TeacherUid](#LessonTeacherUid-Field), [SubjectOfficialName](#LessonSubjectOfficialName-Field).
+Addressed by: [TeacherUid](#LessonTeacherUid-Field) + [SubjectOfficialName](#LessonSubjectOfficialName-Field).
 
 
 
@@ -475,7 +475,7 @@ Target: [TeachingRequiredItem](#TeachingRequiredItem)
 
 ##### **Teaching** (parent of this TeachingRequiredItem)
 Target Type: [SubjectTeaching](#SubjectTeaching)
-Addressed by: [TeacherUid](#TeachingRequiredItemTeacherUid-Field), [SubjectOfficialName](#TeachingRequiredItemSubjectOfficialName-Field).
+Addressed by: [TeacherUid](#TeachingRequiredItemTeacherUid-Field) + [SubjectOfficialName](#TeachingRequiredItemSubjectOfficialName-Field).
 ##### **RequiredItem** (lookup from this TeachingRequiredItem)
 Target Type: [TeacherRelatedEducationItem](#TeacherRelatedEducationItem)
 Addressed by: [RequiredEducationItemUid](#TeachingRequiredItemRequiredEducationItemUid-Field).
