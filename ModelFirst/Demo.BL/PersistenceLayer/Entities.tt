@@ -10,7 +10,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                           //
-//     Copyright: Tobias Korn / version: 24.04.2021                                          //
+//     Copyright: Tobias Korn / version: 12.09.2021                                          //
 //                                                                                           //
 //     this template is open source (under Apache-2 license) and originated here:            //
 //     https://github.com/KornSW/EntityFrameworkCore.ModelFirst                              //
@@ -31,6 +31,7 @@
 
        const bool generateNavPropsToLookup            = true;
        const bool generateReverseNavPropsToReferers   = true;
+       const bool initializeRequiredStrings           = true;
 
        const bool generateEfAttributes                = false;
        const string tablePrefix = "";
@@ -166,6 +167,9 @@ foreach (EntitySchema entity in schema.Entities) {
       initializerSuffix = " = " + field.DefaultValue + ";";
     }
     else{
+      if(initializeRequiredStrings && field.Required && typeName == "String"){
+        initializerSuffix = " = String.Empty;";
+      }
       if(isKeyField && !field.DbGeneratedIdentity && typeName == "Guid"){
         initializerSuffix = " = Guid.NewGuid();";
       }

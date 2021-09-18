@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 namespace Demo {
 
 /// <summary> Provides CRUD access to stored Classes (based on schema version '1.3.0') </summary>
-public partial interface IClassRepository {
+public partial interface IClasses {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding Classes.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -46,7 +46,7 @@ public partial interface IClassRepository {
 }
 
 /// <summary> Provides CRUD access to stored Teachers (based on schema version '1.3.0') </summary>
-public partial interface ITeacherRepository {
+public partial interface ITeachers {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding Teachers.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -87,7 +87,7 @@ public partial interface ITeacherRepository {
 }
 
 /// <summary> Provides CRUD access to stored Rooms (based on schema version '1.3.0') </summary>
-public partial interface IRoomRepository {
+public partial interface IRooms {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding Rooms.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -128,7 +128,7 @@ public partial interface IRoomRepository {
 }
 
 /// <summary> Provides CRUD access to stored Students (based on schema version '1.3.0') </summary>
-public partial interface IStudentRepository {
+public partial interface IStudents {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding Students.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -169,7 +169,7 @@ public partial interface IStudentRepository {
 }
 
 /// <summary> Provides CRUD access to stored Lessons (based on schema version '1.3.0') </summary>
-public partial interface ILessonRepository {
+public partial interface ILessons {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding Lessons.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -210,7 +210,7 @@ public partial interface ILessonRepository {
 }
 
 /// <summary> Provides CRUD access to stored EducationItemPictures (based on schema version '1.3.0') </summary>
-public partial interface IEducationItemPictureRepository {
+public partial interface IEducationItemPictures {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding EducationItemPictures.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -251,7 +251,7 @@ public partial interface IEducationItemPictureRepository {
 }
 
 /// <summary> Provides CRUD access to stored EnducationItems (based on schema version '1.3.0') </summary>
-public partial interface IEnducationItemRepository {
+public partial interface IEnducationItems {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding EnducationItems.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -292,7 +292,7 @@ public partial interface IEnducationItemRepository {
 }
 
 /// <summary> Provides CRUD access to stored Subjects (based on schema version '1.3.0') </summary>
-public partial interface ISubjectRepository {
+public partial interface ISubjects {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding Subjects.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -333,7 +333,7 @@ public partial interface ISubjectRepository {
 }
 
 /// <summary> Provides CRUD access to stored SubjectTeachings (based on schema version '1.3.0') </summary>
-public partial interface ISubjectTeachingRepository {
+public partial interface ISubjectTeachings {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding SubjectTeachings.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -380,7 +380,7 @@ public class SubjectTeachingIdentity {
 }
 
 /// <summary> Provides CRUD access to stored EnducationItemsOfRoomRelatedEducationItem (based on schema version '1.3.0') </summary>
-public partial interface IRoomRelatedEducationItemRepository {
+public partial interface IEnducationItemsOfRoomRelatedEducationItem {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding EnducationItemsOfRoomRelatedEducationItem.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -421,7 +421,7 @@ public partial interface IRoomRelatedEducationItemRepository {
 }
 
 /// <summary> Provides CRUD access to stored TeachingRequiredItems (based on schema version '1.3.0') </summary>
-public partial interface ITeachingRequiredItemRepository {
+public partial interface ITeachingRequiredItems {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding TeachingRequiredItems.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -462,7 +462,7 @@ public partial interface ITeachingRequiredItemRepository {
 }
 
 /// <summary> Provides CRUD access to stored EnducationItemsOfTeacherRelatedEducationItem (based on schema version '1.3.0') </summary>
-public partial interface ITeacherRelatedEducationItemRepository {
+public partial interface IEnducationItemsOfTeacherRelatedEducationItem {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding EnducationItemsOfTeacherRelatedEducationItem.</summary>
   //AccessSpecs GetAccessSpecs();

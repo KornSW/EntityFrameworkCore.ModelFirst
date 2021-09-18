@@ -10,7 +10,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                           //
-//     Copyright: Tobias Korn / version: 01.05.2021                                          //
+//     Copyright: Tobias Korn / version: 31.07.2021                                            //
 //                                                                                           //
 //     this template is open source (under Apache-2 license) and originated here:            //
 //     https://github.com/KornSW/EntityFrameworkCore.ModelFirst                              //
@@ -25,6 +25,9 @@
 
        const string outputNamespace = "Demo";
        const string itemClassNamePattern = "{E}";
+       const string interfaceNamePattern = "I{P}";
+       const string removalActionName = "Delete";
+       const bool onlyRootPrincipals = false;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // NO EDITS BELOW THIS LINE!!!
@@ -66,6 +69,7 @@ foreach (EntitySchema entity in schema.Entities) {
   String pkParamName = "";
   String pkFieldSummary = "";
   String pkNameInSignaure = "";
+  bool hasPrincipal = schema.Relations.Where((r)=> !r.IsLookupRelation && r.ForeignEntityName == entity.Name).Any();
 
   foreach (IndexSchema idx in baseEntity.Indices) {
     if(idx.Name == baseEntity.PrimaryKeyIndexName){
@@ -115,10 +119,12 @@ foreach (EntitySchema entity in schema.Entities) {
   if(!String.IsNullOrWhiteSpace(entitySummary)){
     entitySummary = "/// <summary> " + entitySummary.Trim().Replace("\n", "\n/// ") + " </summary>\n";
   }
+
+  if(!onlyRootPrincipals || !hasPrincipal){
 #>
 
 /// <summary> Provides CRUD access to stored <#=entity.NamePlural#> (based on schema version '<#=schema.SemanticVersion #>') </summary>
-public partial interface I<#=ressolvedItemName#>Repository {
+public partial interface <#=interfaceNamePattern.Replace("{E}", entity.Name).Replace("{P}", entity.NamePlural)#> {
 
   //// <summary> Returns an info object, which specifies the possible operations (accessor specific permissions) regarding <#=entity.NamePlural#>.</summary>
   //AccessSpecs GetAccessSpecs();
@@ -151,13 +157,21 @@ public partial interface I<#=ressolvedItemName#>Repository {
   /// <param name="<#=pkParamName#>"> <#=pkFieldSummary#> </param>
   /// <param name="<#=Ftl(ressolvedItemName)#>"> <#=ressolvedItemName#> containing the new values (the primary identifier fields within the given <#=ressolvedItemName#> will be ignored) </param>
   bool Update<#=ressolvedItemName#>By<#=pkNameInSignaure#>(<#=pkFieldType#> <#=Escape(pkParamName)#>, <#=ressolvedItemName#> <#=Escape(Ftl(ressolvedItemName))#>);
+<#
+  if(!String.IsNullOrWhiteSpace(removalActionName)){
+#>
 
   /// <summary> Deletes a specific <#=ressolvedItemName#> addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.</summary>
   /// <param name="<#=pkParamName#>"> <#=pkFieldSummary#> </param>
-  bool Delete<#=ressolvedItemName#>By<#=pkNameInSignaure#>(<#=pkFieldType#> <#=Escape(pkParamName)#>);
+  bool <#=removalActionName#><#=ressolvedItemName#>By<#=pkNameInSignaure#>(<#=pkFieldType#> <#=Escape(pkParamName)#>);
+<#
+  }
+#>
 
 }<#=pkCompositeTypeDeclaration#>
 <#
+
+  }//root-principal filter
 
 }// entity-loop
 

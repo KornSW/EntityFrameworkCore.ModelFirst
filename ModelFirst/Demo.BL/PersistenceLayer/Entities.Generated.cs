@@ -17,7 +17,7 @@ public class ClassEntity {
   public Nullable<Guid> RoomUid { get; set; }
 
   [Required]
-  public String OfficialName { get; set; }
+  public String OfficialName { get; set; } = String.Empty;
 
   [Required]
   public Int32 EducationLevelYear { get; set; }
@@ -78,10 +78,10 @@ public class TeacherEntity {
   public Guid Uid { get; set; } = Guid.NewGuid();
 
   [Required]
-  public String FirstName { get; set; }
+  public String FirstName { get; set; } = String.Empty;
 
   [Required]
-  public String LastName { get; set; }
+  public String LastName { get; set; } = String.Empty;
 
   [Referer]
   public virtual ObservableCollection<ClassEntity> PrimaryClasses { get; set; } = new ObservableCollection<ClassEntity>();
@@ -128,7 +128,7 @@ public class RoomEntity {
   public Guid Uid { get; set; } = Guid.NewGuid();
 
   [Required]
-  public String OfficialName { get; set; }
+  public String OfficialName { get; set; } = String.Empty;
 
   [Referer]
   public virtual ObservableCollection<ClassEntity> PrimaryClasses { get; set; } = new ObservableCollection<ClassEntity>();
@@ -174,10 +174,10 @@ public class StudentEntity {
   public Guid ClassUid { get; set; }
 
   [Required]
-  public String FirstName { get; set; }
+  public String FirstName { get; set; } = String.Empty;
 
   [Required]
-  public String LastName { get; set; }
+  public String LastName { get; set; } = String.Empty;
 
   [Required]
   public Int32 ScoolEntryYear { get; set; }
@@ -235,7 +235,7 @@ public class LessonEntity {
   public Guid RoomUid { get; set; }
 
   [Required]
-  public String OfficialName { get; set; }
+  public String OfficialName { get; set; } = String.Empty;
 
   [Required]
   public Int32 DayOfWeek { get; set; }
@@ -250,7 +250,7 @@ public class LessonEntity {
   public Guid TeacherUid { get; set; }
 
   [Required]
-  public String SubjectOfficialName { get; set; }
+  public String SubjectOfficialName { get; set; } = String.Empty;
 
   [Principal]
   public virtual ClassEntity EducatedClass { get; set; }
@@ -361,7 +361,7 @@ public class EnducationItemEntity {
   public Int16 InventoryNumber { get; set; }
 
   [Required]
-  public String Title { get; set; }
+  public String Title { get; set; } = String.Empty;
 
   /// <summary> *this field is optional (use null as value) </summary>
   public String DedicatedToSubjectName { get; set; }
@@ -409,7 +409,7 @@ public class EnducationItemEntity {
 public class SubjectEntity {
 
   [Required]
-  public String OfficialName { get; set; }
+  public String OfficialName { get; set; } = String.Empty;
 
   [Referer]
   public virtual ObservableCollection<EnducationItemEntity> EnducationItems { get; set; } = new ObservableCollection<EnducationItemEntity>();
@@ -445,7 +445,7 @@ public class SubjectTeachingEntity {
   public Guid TeacherUid { get; set; } = Guid.NewGuid();
 
   [Required]
-  public String SubjectOfficialName { get; set; }
+  public String SubjectOfficialName { get; set; } = String.Empty;
 
   [Referer]
   public virtual ObservableCollection<LessonEntity> ScheduledLessons { get; set; } = new ObservableCollection<LessonEntity>();
@@ -540,7 +540,7 @@ public class TeachingRequiredItemEntity {
   public Guid TeacherUid { get; set; }
 
   [Required]
-  public String SubjectOfficialName { get; set; }
+  public String SubjectOfficialName { get; set; } = String.Empty;
 
   [Required]
   public Guid RequiredEducationItemUid { get; set; }
